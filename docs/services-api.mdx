@@ -1,0 +1,186 @@
+---
+title: Services
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+
+All service endpoints leverage the [Service object](services-model)
+
+## List All Services
+
+#### `GET /v2/services`
+
+### Parameters
+
+| Type   | Key            | Value                                                       |
+| ------ | -------------- | ----------------------------------------------------------- |
+| Header | X-Effx-Api-Key | Your API key                                                |
+| Query  | limit          | Integer. How many records to retrieve per request           |
+| Query  | offset         | Integer. The number of records to skip. Use for pagination. |
+
+### Response
+
+export const listResponse = [
+  {
+    name: 'services',
+    type: 'list of service objects',
+    content: (
+      <>
+        <Markdown>See [Service object](services-model)</Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'pagination',
+    type: 'pagination object',
+    content: (
+      <>
+        <Markdown>See [Pagination object](pagination-model)</Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={listResponse} />
+
+### Example
+
+```shell title="GET https://api.effx.io/v2/services"
+curl -X GET "https://api.effx.io/v2/services?limit=10&offset=1" \
+  -H "x-effx-api-key:${EFFX_API_KEY}"
+```
+
+## Read a Service
+
+#### `GET /v2/services/:serviceID`
+
+### Parameters
+
+| Type   | Key            | Value                                         |
+| ------ | -------------- | --------------------------------------------- |
+| Header | X-Effx-Api-Key | Your API key                                  |
+| Path   | serviceID      | The `ID` or `slug` of the service to retrieve |
+
+### Response
+
+The response is a single [Service object](services-model)
+
+### Example
+
+```shell title="GET https://api.effx.io/v2/services/:serviceID"
+curl -X GET "https://api.effx.io/v2/services/example-service" \
+  -H "x-effx-api-key:${EFFX_API_KEY}"
+```
+
+## Create or Update Services
+
+#### `PUT /v2/services`
+
+### Parameters
+
+| Type   | Key            | Value            |
+| ------ | -------------- | ---------------- |
+| Header | X-Effx-Api-Key | Your API key     |
+| Header | Content-Type   | application/json |
+
+### Request Body
+
+export const requestBody = [
+  {
+    name: 'version',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>Always `effx/v1`</Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'kind',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>Always `Service` or `service`</Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'spec',
+    type: 'service object',
+    content: (
+      <>
+        <Markdown>See [Service object](services-model)</Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={requestBody} />
+
+### Response
+
+Status `204` on success with no response body.
+
+### Example
+
+```shell title="PUT https://api.effx.io/v2/services"
+curl -X PUT "https://api.effx.io/v2/services" \
+  -H "x-effx-api-key:${EFFX_API_KEY}" \
+  -H "content-type:application/json" \
+  -d '
+{
+  "version": "effx/v1",
+  "kind": "Service",
+  "spec": {
+    "name": "the canonical name of the service",
+    "description": "something to describe what this service does",
+    "contact": {
+      "email": "engineering@effx.com",
+      "onCall": {
+        "label": "how to label the link",
+        "url": "https://app.effx.com"
+      },
+      "chat": {
+        "label": "how to label the link",
+        "url": "https://app.effx.com"
+      },
+      "issueTracker": {
+        "label": "how to label the link",
+        "url": "https://app.effx.com"
+      }
+    },
+    "linkGroups": [
+      {
+        "label": "Dashboards",
+        "links": [
+          {
+            "label": "datadog",
+            "url": "https://datadoghq.com/some/link"
+          },
+          {
+            "label": "newrelic",
+            "url": "https://newrelic.com/appid/dashboard"
+          }
+        ]
+      }
+    ],
+    "tags": {
+      "go": "1.13.5",
+      "tier": "0",
+      "group": "auth"
+    },
+    "annotations": {
+      "effx.io/owned-by": "authentication team",
+    },
+    "dependencies": {
+      "manual": [
+        {
+          "kind": "service",
+          "name": "arrakis"
+        }
+      ]
+    }
+  }
+}'
+```

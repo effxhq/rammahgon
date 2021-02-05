@@ -1,0 +1,35 @@
+---
+title: Errors
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+
+Error objects are returned from all endpoints. Developers can expect consistent status codes and response bodies across all endpoints.
+
+## Attributes
+
+export const attributes = [
+  {
+    name: 'message',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          The message provides detailed information about the error. This
+          message can help with support requests.
+        </Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={attributes} />
+
+## Codes
+
+| Code | Meaning                                                                                                                                   |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 400  | Request is invalid. Take another look at your request and make sure it matches our API.                                                   |
+| 403  | An authentication error. Either you forgot to attach an API Key or it is invalid.                                                         |
+| 500  | An Internal Server Error. Something went wrong on our end. Contact <a href="mailto:support@effx.com">support</a> if the problem persists. |

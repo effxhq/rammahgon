@@ -1,0 +1,50 @@
+---
+title: Events
+---
+
+## Create an Event
+
+#### `POST /v2/events`
+
+### Parameters
+
+| Type   | Key            | Value            |
+| ------ | -------------- | ---------------- |
+| Header | X-Effx-Api-Key | Your API key     |
+| Header | Content-Type   | application/json |
+
+### Request Body
+
+A single [Event object](events-model)
+
+### Response
+
+Status `204` on success with no response body.
+
+### Example
+
+```shell title="POST https://api.effx.io/v2/events"
+curl -X POST "https://api.effx.io/v2/events" \
+  -H "x-effx-api-key:${EFFX_API_KEY}" \
+  -H "content-type:application/json" \
+  -d '
+{
+  "message": "string",
+  "title": "string",
+  "timestamp_milliseconds": 1613158270434,
+  "tags": [
+    {
+      "key": "string",
+      "value": "string"
+    }
+  ],
+  "actions": [
+    {
+      "level": "info",
+      "name": "string",
+      "url": "string"
+    }
+  ],
+  "service_name": "example-service"
+}'
+```

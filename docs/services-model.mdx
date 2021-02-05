@@ -1,0 +1,194 @@
+---
+title: Service
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
+import Link from '../src/models/link';
+import Contact from '../src/models/contact';
+
+## Attributes
+
+Within the `spec` portion of the Service definition, you can define the following:
+
+export const commonTags = `
+| Tag | Purpose|
+| ---------------- | -------- |
+| group   | Denotes a group of services |
+| tier   | Denotes the importance of a service |
+| <language>   | The value stores the language version |
+`;
+
+export const commonAnnotations = `
+| Annotation | Value|
+| --- | --- |
+| effx.io/owned-by | Sets ownership relationship by team name |
+`;
+
+export const attributes = [
+  {
+    name: 'name',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          This is the name of the service which is the primary way the service
+          will be displayed
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'description',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          The description is a string describing what the service does --
+          engineers will be able to discover the service by searching for terms
+          in the description
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'annotations',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>Annotations are used to modify behavior within effx</Markdown>
+        <Markdown plugins={[gfm]} source={commonAnnotations} />
+      </>
+    ),
+  },
+  {
+    name: 'tags',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>
+          Tags primary way to create and provide values for the taxonomy of your
+          service. They're free form so you can choose what makes the most sense
+          for your organization. Some commonly used tags are below:
+        </Markdown>
+        <Markdown plugins={[gfm]} source={commonTags} />
+      </>
+    ),
+  },
+  Contact('service'),
+  {
+    name: 'linkGroups',
+    type: 'array of link groups',
+    content: (
+      <>
+        <Markdown>
+          Link Groups provide you the ability to organize links to external
+          services or tools where you can find more information about a service.
+        </Markdown>
+      </>
+    ),
+    children: [
+      {
+        name: 'label',
+        type: 'string',
+        content: (
+          <>
+            <Markdown>The name of the link group</Markdown>
+          </>
+        ),
+      },
+      {
+        name: 'links',
+        type: 'array of link objects',
+        content: (
+          <>
+            <Markdown>The list of links that are part of the group</Markdown>
+          </>
+        ),
+        children: Link,
+      },
+    ],
+  },
+  {
+    name: 'dependencies',
+    type: 'array of dependency objects',
+    content: (
+      <>
+        <Markdown>Define dependencies on other services</Markdown>
+      </>
+    ),
+    children: [
+      {
+        name: 'name',
+        type: 'string',
+        content: (
+          <>
+            <Markdown>Matches a dependency by the `kind` name</Markdown>
+          </>
+        ),
+      },
+      {
+        name: 'kind',
+        type: 'string (optional)',
+        content: (
+          <>
+            <Markdown>
+              The `kind` of entity to depend on. Defaults to `service`.
+            </Markdown>
+          </>
+        ),
+      },
+    ],
+  },
+];
+
+<ModelAttributeGroup attributes={attributes} />
+
+## YAML Reference
+
+```yml
+---
+version: effx/v1
+kind: service
+spec:
+  name: 'example-service'
+  description: 'example description for the example-service'
+  annotations:
+    effx.io/owned-by: 'example-team'
+  tags:
+    group: 'example'
+    tier: '1'
+    go: '1.15.5'
+  contact:
+    email: 'support@effx.com'
+    chat:
+      label: '#community'
+      url: 'https://m11s.slack.com/archives/C01E19PPKNH'
+    onCall:
+      label: 'pagerduty schedule'
+      url: 'https://docs.effx.com/#oncall-links'
+  linkGroups:
+    - label: 'Dashboards'
+      links:
+        - label: 'Datadog'
+          url: 'https://app.datadoghq.com/dashboard/y2w-wt6-wi8/effx-platform-status'
+    - label: 'Runbooks'
+      links:
+        - label: 'Runbook'
+          url: 'https://blog.effx.com/how-to-write-a-runbook/'
+    - label: 'Version Control'
+      links:
+        - label: 'GitHub'
+          url: 'https://github.com/effxhq/effx-sync-action'
+    - label: 'Documentation'
+      links:
+        - label: 'API Documentation'
+          url: 'https://docs.effx.com/#api-documentation'
+  dependencies:
+    manual:
+      # Both describe dependencies on other services by name
+      - kind: 'service'
+        name: 'arrakis'
+      - name: 'caladan'
+```

@@ -1,0 +1,77 @@
+---
+title: Team
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
+import Link from '../src/models/link';
+import Contact from '../src/models/contact';
+
+## Attributes
+
+export const commonAnnotations = `
+| Annotation | Value|
+| --- | --- |
+| effx.io/reports-to | Sets reporting relationship by team name |
+`;
+
+export const attributes = [
+  {
+    name: 'name',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          This is the name of the team which is the primary way the team will be
+          displayed
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'description',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          The description is a string describing what the team does
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'annotations',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>Annotations are used to modify behavior within effx</Markdown>
+        <Markdown plugins={[gfm]} source={commonAnnotations} />
+      </>
+    ),
+  },
+  Contact('team'),
+];
+
+<ModelAttributeGroup attributes={attributes} />
+
+## Reference YAML
+
+```yml
+---
+version: effx/v1
+kind: team
+spec:
+  name: 'example team'
+  description: 'awesome team responsible for example services'
+  annotations:
+    effx.io/reports-to: 'engineering'
+  contact:
+    email: 'support@effx.com'
+    chat:
+      label: '#community'
+      url: 'https://m11s.slack.com/archives/C01E19PPKN'
+    onCall:
+      label: 'pagerduty schedule'
+      url: 'https://docs.effx.com/#oncall-links'
+```

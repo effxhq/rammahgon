@@ -1,0 +1,58 @@
+---
+title: Installation
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import Markdown from 'react-markdown';
+
+Download the CLI binary and add to your `PATH` with the following commands:
+
+<Tabs
+  defaultValue='darwin'
+  values={[
+    { label: 'MaxOS (darwin)', value: 'darwin' },
+    { label: 'Linux (32-bit)', value: 'linux32' },
+    { label: 'Linux (64-bit)', value: 'linux64' },
+    { label: 'Windows (32-bit)', value: 'windows32' },
+    { label: 'Windows (64-bit)', value: 'windows64' },
+  ]}
+>
+  <TabItem value='linux32'>
+    <CodeBlock className='language-shell'>
+      curl -Lo effx
+      https://effx.run/effx-cli/releases/latest/effx-cli_Linux_i386{'\n'}
+      sudo install effx /usr/local/bin/
+    </CodeBlock>
+  </TabItem>
+  <TabItem value='linux64'>
+    <CodeBlock className='language-shell'>
+      curl -Lo effx
+      https://effx.run/effx-cli/releases/latest/effx-cli_Linux_x86_64{'\n'}
+      sudo install effx /usr/local/bin/
+    </CodeBlock>
+  </TabItem>
+  <TabItem value='darwin'>
+    <CodeBlock className='language-shell'>
+      curl -Lo effx
+      https://effx.run/effx-cli/releases/latest/effx-cli_Darwin_x86_64{'\n'}
+      sudo install effx /usr/local/bin/
+    </CodeBlock>
+  </TabItem>
+  <TabItem value='windows32'>
+    <CodeBlock className='language-shell'>
+      curl -Lo effx
+      https://effx.run/effx-cli/releases/latest/effx-cli_Windows_i386.exe{'\n'}
+      sudo install effx /usr/local/bin/
+    </CodeBlock>
+  </TabItem>
+  <TabItem value='windows64'>
+    <CodeBlock className='language-shell'>
+      curl -Lo effx
+      https://effx.run/effx-cli/releases/latest/effx-cli_Windows_x86_64.exe
+      {'\n'}
+      sudo install effx /usr/local/bin/
+    </CodeBlock>
+  </TabItem>
+</Tabs>

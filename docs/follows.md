@@ -1,0 +1,17 @@
+---
+title: Following Resources
+---
+
+As you build your catalog, you may find the number of teams and services overwhelming.
+
+Make your most commonly referenced services more prominent by following them. Followed services get added to your home page
+and get preferential treatment in your searches.
+
+Following teams is a great way to keep their contact info handy. Follow the team you belong to and teams you depend on.
+
+## Give the Example Service a Follow
+
+Navigate to your [Services](https://app.effx.com/services/) page and you should see your newly created `example-service`.
+
+Your home page should now look like this:
+TODO: screenshot

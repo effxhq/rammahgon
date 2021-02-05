@@ -1,0 +1,128 @@
+---
+title: Event
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
+
+## Attributes
+
+export const reservedTags = `
+| Key | Value | Purpose |
+| --- | --- | --- |
+| type | alert | Used to detect alerts for Standards |
+| type | deploy| Used to detect deployment events for Standards |
+`;
+
+export const attributes = [
+  {
+    name: 'title',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          The content to be displayed in the header of the event
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'message',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          The content to be displayed in the body of the event. Provide as much
+          detail as needed here.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'timestamp_milliseconds',
+    type: 'integer',
+    content: (
+      <>
+        <Markdown>
+          The timestamp in milliseconds on which this event occurred. Must be
+          greater than 01/01/2020.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'tags',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>
+          Use mostly free formed `key:value` pairs to help categorize events.
+          There are special tags used to detect special types of events:
+        </Markdown>
+        <Markdown plugins={[gfm]} source={reservedTags} />
+      </>
+    ),
+  },
+  {
+    name: 'actions',
+    type: 'array of action objects',
+    content: (
+      <>
+        <Markdown>
+          Actions make your workflow more efficient. Link directly to Event logs
+          or deployment actions.
+        </Markdown>
+      </>
+    ),
+    children: [
+      {
+        name: 'level',
+        type: 'enum',
+        content: (
+          <>
+            <Markdown>
+              Used to set the icon of the action. Options are: `info`, `warn`
+              and `error`.
+            </Markdown>
+          </>
+        ),
+      },
+      {
+        name: 'name',
+        type: 'string',
+        content: (
+          <>
+            <Markdown>Used as the label of the action.</Markdown>
+          </>
+        ),
+      },
+      {
+        name: 'url',
+        type: 'string',
+        content: (
+          <>
+            <Markdown>
+              Specify the link out. We recommend making this as specific to the
+              event as possible.
+            </Markdown>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    name: 'service_name',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          Specifying a service's name will be used to add this event to a
+          service's feed
+        </Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={attributes} />

@@ -1,0 +1,36 @@
+---
+title: Pagination
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+
+Pagination objects are commonly returned from "list all" types of endpoints.
+
+## Attributes
+
+export const attributes = [
+  {
+    name: 'nextOffset',
+    type: 'integer',
+    content: (
+      <>
+        <Markdown>
+          The offset to be used for the next request. When there are no more
+          records, this value will be `null`.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'totalResults',
+    type: 'integer',
+    content: (
+      <>
+        <Markdown>The total number of records.</Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={attributes} />
