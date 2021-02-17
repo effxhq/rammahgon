@@ -5,27 +5,23 @@
  * and scoped locally.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background-position: center; /* Center the image */
-  background-size: contain;
-  background-repeat: no-repeat; /* Do not repeat the image */
-  color: white;
-}
-
 @media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
+  .feature {
+    margin: 16px 0px;
+  }
+
+  .featureRow {
+    margin: 0px 16px;
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.welcome {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.mainDark {
+  background-color: #0a052c;
 }
 
 .features {
@@ -47,13 +43,25 @@
 
 .feature {
   border-radius: 0;
-  margin: 1px;
+  outline: white;
+  border: solid;
+  border-width: 1px;
+  background-color: #0a052c;
+  color: white;
 }
 
 .feature:hover {
   transform: scale(1.1);
 }
 
-.getStarted {
-  color: white !important;
+.featureDark {
+  outline: white;
+  border: solid;
+  border-width: 1px;
+  background-color: #0a052c;
+}
+
+.reachOut {
+  text-align: center;
+  padding: 32px;
 }

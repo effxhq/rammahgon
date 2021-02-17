@@ -11,9 +11,9 @@ import styles from "./styles.module.css";
 
 const features = [
   {
-    title: "Getting Started",
-    imageUrl: "img/getting-started.png",
-    imageUrlDark: "img/getting-started-dark.png",
+    title: "Get Started",
+    imageUrl: "img/getting-started.svg",
+    imageUrlDark: "img/getting-started.svg",
     description: (
       <>
         Learn how to add all your services and teams efficiently. Getting your
@@ -24,8 +24,8 @@ const features = [
   },
   {
     title: "Call our API",
-    imageUrl: "img/deliver.png",
-    imageUrlDark: "img/deliver-dark.png",
+    imageUrl: "img/api.svg",
+    imageUrlDark: "img/api.svg",
     description: (
       <>
         Build your own workflow by calling our API. Perfect if you document services already with
@@ -36,8 +36,8 @@ const features = [
   },
   {
     title: "Automations",
-    imageUrl: "img/operate.png",
-    imageUrlDark: "img/operate-dark.png",
+    imageUrl: "img/automations.svg",
+    imageUrlDark: "img/automations.svg",
     description: (
       <>
         Accelerate your workflow with Continuous Integration Automations. Upload your
@@ -48,8 +48,8 @@ const features = [
   },
   {
     title: "Integrations",
-    imageUrl: "img/conways-law.svg",
-    imageUrlDark: "img/conways-law.svg",
+    imageUrl: "img/integrations.svg",
+    imageUrlDark: "img/integrations.svg",
     description: (
       <>
         Import all of your data from the tools you already use.
@@ -74,7 +74,7 @@ function Feature(props) {
 
   return (
     <div
-      className={clsx("col col--4 card", styles.feature)}
+      className={clsx("col col--4", styles.feature, isDarkTheme && styles.featureDark)}
       onClick={handleClick}
       role="button"
       tabIndex={0}
@@ -97,9 +97,41 @@ Feature.propTypes = {
   clickToRoute: PropTypes.string.isRequired,
 };
 
+function Main() {
+  const { isDarkTheme } = useThemeContext();
+  return (
+    <main className={clsx(isDarkTheme && styles.mainDark)}>
+      <div className={clsx("container", styles.welcome)}>
+        <h1>Welcome to your effx wiki</h1>
+        <p>
+          Explore guides, tutorials and tips on how to get the best out of your service catalog!
+        </p>
+      </div>
+      {features && features.length > 0 && (
+        <section className={styles.features}>
+          <div className="container">
+            <div className={clsx("row", styles.featureRow)}>
+              <Feature {...features[0]} />
+              <Feature {...features[1]} />
+            </div>
+            <div className={clsx("row", styles.featureRow)}>
+              <Feature {...features[2]} />
+              <Feature {...features[3]} />
+            </div>
+          </div>
+        </section>
+      )}
+      <div className={styles.reachOut}>
+        Can't find what you're looking for? Reach out at
+        {" "}
+        <a href="mailto:support@effx.com">support@effx.com</a>
+        .
+      </div>
+    </main>
+  );
+}
+
 function Home() {
-  const context = useDocusaurusContext();
-  const { siteConfig = {} } = context;
   const description = "See how the world’s best engineering teams use effx’s modern microservice "
     + "catalog to track service ownership, ship code faster, and more reliably. Get started free today!";
   return (
@@ -107,39 +139,7 @@ function Home() {
       title=""
       description={description}
     >
-      <header className={clsx("hero", "hero--primary", styles.heroBanner)} style={{ backgroundImage: `url(${useBaseUrl("img/banner.png")})` }}>
-        <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                "button button--outline button--secondary button--lg",
-                styles.getStarted,
-              )}
-              to={useBaseUrl("docs/")}
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </header>
-      <main>
-        {features && features.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className={clsx("row", styles.featureRow)}>
-                <Feature {...features[0]} />
-                <Feature {...features[1]} />
-              </div>
-              <div className={clsx("row", styles.featureRow)}>
-                <Feature {...features[2]} />
-                <Feature {...features[3]} />
-              </div>
-            </div>
-          </section>
-        )}
-      </main>
+      <Main />
     </Layout>
   );
 }
