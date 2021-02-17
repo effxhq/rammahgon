@@ -74,7 +74,7 @@ function Feature(props) {
 
   return (
     <div
-      className={clsx("col col--4", styles.feature, isDarkTheme && styles.featureDark)}
+      className={clsx("col col--5", styles.feature, isDarkTheme && styles.featureDark)}
       onClick={handleClick}
       role="button"
       tabIndex={0}
@@ -98,14 +98,13 @@ Feature.propTypes = {
 };
 
 function Main() {
-  const { isDarkTheme } = useThemeContext();
   return (
-    <main className={clsx(isDarkTheme && styles.mainDark)}>
+    <main className={styles.main}>
       <div className={clsx("container", styles.welcome)}>
-        <h1>Welcome to your effx wiki</h1>
-        <p>
+        <h1 style={{ fontFamily: "Poppins", fontWeight: "800" }}>Welcome to your effx wiki</h1>
+        <h3>
           Explore guides, tutorials and tips on how to get the best out of your service catalog!
-        </p>
+        </h3>
       </div>
       {features && features.length > 0 && (
         <section className={styles.features}>

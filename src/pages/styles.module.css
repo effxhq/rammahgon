@@ -17,11 +17,12 @@
 
 .welcome {
   text-align: center;
-  padding: 4rem 0;
+  padding: 4rem 0 2rem 0;
 }
 
-.mainDark {
+.main {
   background-color: #0a052c;
+  color: white;
 }
 
 .features {
@@ -43,22 +44,15 @@
 
 .feature {
   border-radius: 0;
-  outline: white;
-  border: solid;
-  border-width: 1px;
-  background-color: #0a052c;
   color: white;
 }
 
 .feature:hover {
-  transform: scale(1.1);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .featureDark {
-  outline: white;
-  border: solid;
-  border-width: 1px;
-  background-color: #0a052c;
 }
 
 .reachOut {

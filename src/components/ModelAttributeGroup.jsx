@@ -6,6 +6,7 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { gray, white } from "ansi-colors";
 
 const useStyles = makeStyles((theme) => createStyles({
   expand: {
@@ -20,11 +21,7 @@ const useStyles = makeStyles((theme) => createStyles({
   },
   card: {
     boxShadow: "none",
-    borderRadius: "4px",
-    padding: "16px",
-    margin: "8px 0px",
-    // backgroundColor: "rgba(31, 24, 82, 0.3)",
-    backgroundColor: "rgba(62, 129, 255, 0.1)",
+    borderRadius: "0px",
   },
   h3: {
     fontSize: "var(--ifm-h3-font-size);",
@@ -32,6 +29,12 @@ const useStyles = makeStyles((theme) => createStyles({
   },
   nested: {
     marginLeft: "24px",
+    padding: "20px",
+    marginBottom: "8px",
+    borderColor: "#e5e5e5",
+    border: "solid",
+    borderRadius: "8px",
+    borderWidth: ".5px",
   },
   header: {
     display: "flex",
@@ -75,13 +78,13 @@ function ModelAttribute(props) {
           </IconButton>
         )}
       </div>
-      <div className="">
+      <div>
         {content}
       </div>
       { children.length > 0
       && (
         <Collapse in={expanded} className={classes.nested} timeout="auto" unmountOnExit>
-          <h4>Child Attributes</h4>
+          <h4 style={{ opacity: ".75" }}>CHILD ATTRIBUTES</h4>
           <ModelAttributeGroup attributes={children} />
         </Collapse>
       )}
