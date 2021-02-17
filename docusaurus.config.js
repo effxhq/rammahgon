@@ -11,7 +11,10 @@ module.exports = {
   themeConfig: {
     hideableSidebar: true,
     colorMode: {
-      defaultMode: "dark",
+    },
+    prism: {
+      theme: require("prism-react-renderer/themes/github"),
+      darkTheme: require("prism-react-renderer/themes/dracula"),
     },
     navbar: {
       title: "effx | wiki",
