@@ -65,3 +65,7 @@
   text-align: center;
   padding: 32px;
 }
+
+.subheader {
+  font-weight: 400;
+}

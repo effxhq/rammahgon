@@ -105,7 +105,7 @@ function Main() {
     <main className={clsx(isDarkTheme && styles.mainDark)}>
       <div className={clsx("container", styles.welcome)}>
         <h1 style={{ fontFamily: "Poppins", fontWeight: "800" }}>Welcome to your effx wiki</h1>
-        <h3>
+        <h3 className={styles.subheader}>
           Explore guides, tutorials and tips on how to get the best out of your service catalog!
         </h3>
       </div>
