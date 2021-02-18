@@ -35,12 +35,6 @@ module.exports = {
           label: "Log In",
           position: "right",
         },
-        {
-          href: "https://app.effx.com/sign_up",
-          label: "Sign up",
-          position: "right",
-          className: "button",
-        },
       ],
     },
     footer: {
