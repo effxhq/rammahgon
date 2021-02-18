@@ -1,0 +1,39 @@
+.expand {
+  transform: rotate(0deg);
+  margin-left: auto;
+}
+
+.expandOpen {
+  transform: rotate(180deg);
+}
+
+.card {
+  border-bottom: solid;
+  border-bottom-width: 0.5px;
+}
+
+.card:nth-last-child(1) {
+  border-bottom: none;
+}
+
+.h3 {
+  font-size: var(--ifm-h3-font-size);
+  font-weight: var(--ifm-heading-font-weight);
+}
+
+.nested {
+  margin-left: 24px;
+  padding: 20px;
+  margin-bottom: 8px;
+  border-color: #e5e5e5 !important;
+  border: solid;
+  border-width: 0.5px;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 8px;
+}

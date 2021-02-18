@@ -13,7 +13,7 @@ module.exports = {
     colorMode: {
     },
     prism: {
-      theme: require("prism-react-renderer/themes/github"),
+      theme: require("prism-react-renderer/themes/dracula"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
     },
     navbar: {
@@ -34,6 +34,12 @@ module.exports = {
           href: "https://app.effx.com",
           label: "Log In",
           position: "right",
+        },
+        {
+          href: "https://app.effx.com/sign_up",
+          label: "Sign up",
+          position: "right",
+          className: "button",
         },
       ],
     },

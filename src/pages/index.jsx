@@ -3,8 +3,6 @@ import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import Layout from "@theme/Layout";
 import useThemeContext from "@theme/hooks/useThemeContext";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import PropTypes from "prop-types";
 import styles from "./styles.module.css";
