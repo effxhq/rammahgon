@@ -1,0 +1,62 @@
+---
+title: Usage
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+## Commands
+
+<Tabs
+  defaultValue='lint'
+  values={[
+    { label: 'lint', value: 'lint' },
+    { label: 'sync', value: 'sync' },
+    { label: 'event', value: 'event' },
+  ]}
+>
+  <TabItem value='lint'>
+    Validates YAML syntax and content.
+    <br />
+    <br />
+    <CodeBlock className='language-shell' metastring={'title="Examples"'}>
+      # Lint all files in this directory (recursive){'\n'}
+      effx lint -d .{'\n'}# Lint a single file{'\n'}
+      effx lint -f effx.yaml{'\n'}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value='sync'>
+    Uploads YAML to your Effx account (API Key required).
+    <br />
+    <br />
+    <CodeBlock className='language-shell' metastring={'title="Examples"'}>
+      # Sync all files in this directory (recursive){'\n'}
+      effx sync -d . -k ${`{EFFX_API_KEY}`}
+      {'\n'}# Sync a single file{'\n'}
+      effx sync -f effx.yaml -k ${`{EFFX_API_KEY}`}
+      {'\n'}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value='event'>
+    Post an Event to your Event Feed (API Key required) (Pro Tier Only)
+    <br />
+    <br />
+    <CodeBlock className='language-shell' metastring={'title="Examples"'}>
+      # Send a global deployment event{'\n'}
+      effx event -k ${`{EFFX_API_KEY}`} --title "Deployment" --message "Deployed
+      backend services" --tag "type:deploy"{'\n'}# Send a service deployment event
+      {'\n'}
+      effx event -k ${`{EFFX_API_KEY}`} --title "Deployment" --message "Deployed
+      caladan" --tag "type:deploy" --service caladan{'\n'}# Send commit event
+      {'\n'}
+      effx event -k ${`{EFFX_API_KEY}`} --title "Commit" --message "Committed to
+      main branch" --tag "type:commit"{'\n'}
+    </CodeBlock>
+
+  </TabItem>
+</Tabs>
+
+## File Naming
+
+You must name your files either `effx.yaml` or to match the `*.effx.yaml` pattern. Both `.yaml` and `.yml` file extensions are supported.

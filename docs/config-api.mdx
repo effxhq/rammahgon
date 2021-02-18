@@ -1,0 +1,186 @@
+---
+title: Configuration Files
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
+
+:::caution
+These are internal endpoints used by the CLI. These endpoints do some "magic" intentionally
+to make CLI development simpler. Use the other endpoints for a more common access pattern.
+:::
+
+The Configuration File endpoint group is designed to work with YAML file content directly. The server
+will parse a YAML template formatted as a string and operate on the resource depending on its `kind`.
+
+## Lint a YAML file
+
+#### `POST /v2/config/lint`
+
+### Parameters
+
+| Type   | Key          | Value            |
+| ------ | ------------ | ---------------- |
+| Header | Content-Type | application/json |
+
+### Request Body
+
+export const commonAnnotations = `
+| Annotation | Value |
+| --- | --- |
+| effx.io/source | The caller name. Commonly used by effx's open-source projects |
+| effx.io/file-path | The absolute/relative path of the YAML file. The value will help users locate YAML files. |
+`;
+
+export const requestLint = [
+  {
+    name: 'fileContents',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          This field contains the contents of a YAML file in string
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'tags',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>
+          Do not use these tags. It's better to use them in a resource's
+          definition instead.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'annotations',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>
+          Annotations are used to help provide metadata about the file upload.
+          Examples:
+        </Markdown>
+        <Markdown plugins={[gfm]} source={commonAnnotations} />
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={requestLint} />
+
+### Response
+
+export const lintResponse = [
+  {
+    name: 'message',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          A message is returned when the `fileContents` fail schema validation.
+          The message body is a JSON string designed to be pretty-printed in a
+          terminal.
+        </Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={lintResponse} />
+
+### Example
+
+```shell title="POST" https://api.effx.io/v2/config/lint"
+curl -X POST "https://api.effx.io/v2/config/lint" \
+  -H "content-type:application/json" \
+  -d '{"fileContents": "---\nversion: effx/v1\nkind: team\nspec:\n  name: authentication team\n  description: reponsible for user authentication and signup\n  annotations:\n    effx.io/reports-to: engineering\n  contact:\n    email: auth@effx.com\n    chat:\n      label: \"#auth\"\n      url: https://effx.slack.com/archives/CJV3H8Z41\n    onCall:\n      label: escalation policy\n      url: https://effxio.pagerduty.com/schedules#PJEA3VC\n", "annotations": {"effx.io/source": "effx-cli"}}'
+```
+
+## Sync a YAML file
+
+#### `PUT /v2/config`
+
+### Parameters
+
+| Type   | Key            | Value            |
+| ------ | -------------- | ---------------- |
+| Header | X-Effx-Api-Key | Your API key     |
+| Header | Content-Type   | application/json |
+
+### Request Body
+
+export const requestSync = [
+  {
+    name: 'fileContents',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          This field contains the contents of a YAML file in string
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'tags',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>
+          Do not use these tags. It's better to use them in a resource's
+          definition instead.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'annotations',
+    type: 'dict',
+    content: (
+      <>
+        <Markdown>
+          Annotations are used to help provide metadata about the file upload.
+          Examples:
+        </Markdown>
+        <Markdown plugins={[gfm]} source={commonAnnotations} />
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={requestSync} />
+
+### Response
+
+export const syncResponse = [
+  {
+    name: 'message',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          A message is returned when the `fileContents` fail schema validation.
+          The message body is a JSON string designed to be pretty-printed in a
+          terminal.
+        </Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={syncResponse} />
+
+### Example
+
+```shell title="PUT" https://api.effx.io/v2/config"
+curl -X PUT "https://api.effx.io/v2/config" \
+  -H "x-effx-api-key:${EFFX_API_KEY}" \
+  -H "content-type:application/json" \
+  -d '{"fileContents": "---\nversion: effx/v1\nkind: team\nspec:\n  name: authentication team\n  description: reponsible for user authentication and signup\n  annotations:\n    effx.io/reports-to: engineering\n  contact:\n    email: auth@effx.com\n    chat:\n      label: \"#auth\"\n      url: https://effx.slack.com/archives/CJV3H8Z41\n    onCall:\n      label: escalation policy\n      url: https://effxio.pagerduty.com/schedules#PJEA3VC\n", "annotations": {"effx.io/source": "effx-cli"}}'
+```

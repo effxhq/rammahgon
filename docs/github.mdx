@@ -1,0 +1,69 @@
+---
+title: Github Actions
+---
+
+We’ll walk you through how to set up a workflow that uses both of effx’s published Github Lint and Sync Actions, which will help you quickly and reliably bring your service `effx.yaml` files into effx.
+
+:::note
+You’ll need to configure the Secret API Key before setting up the workflow. This requires admin access to the services’ Github repository.
+:::
+
+### Configure the Secret API Key
+
+Setup your effx API key within the repo's Github Secrets so that the workflow we’ll set up next has the right credentials to access our effx API.
+
+1. Navigate to the repository's **Settings** in the Github web interface
+   ![repo settings](/img/Screenshot1-secretAPI.png)
+
+2. Select **Secrets** from the left side menu, and create a **New Secret**
+   ![repo settings](/img/Screenshot2-secretAPI.png)
+
+3. Type `EFFX_API_KEY` into the name field. Then paste your **effx API key** into the value field. You can retrieve your API key from within effx by navigating to **Account Settings**.
+   ![repo settings](/img/Screenshot3-secretAPI.png)
+
+4. Click **Add Secret**, and let’s move on to the next step 👇
+
+### Set up Github Lint and Sync Workflow
+
+By setting up this Github workflow, you can use both of effx’s Lint and Sync Actions.
+
+_**Lint Action**_ -- parses and validates your effx components on every push to any branch. This action will fail if it discovers any `effx.yaml` file that has an invalid format, so that you can catch these issues before merging any code to your default branch.
+
+_**Sync Action**_ -- recursively discovers any file ending with `effx.yaml` and syncs it to the effx platform. On pushing to the default branch, this action will parse and save your effx components. In your `.github/workflows/` directory, create a new file called `effx-cli-ci.yaml` and add the code snippet below.
+
+```yml title="effx-cli-ci.yaml"
+---
+name: 'effx-cli-ci'
+on: 'push'
+jobs:
+  lint-all:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'effxhq/effx-lint-action@v1'
+        with:
+          directory: '${GITHUB_WORKSPACE}'
+  sync-all:
+    runs-on: 'ubuntu-latest'
+    needs: 'lint-all'
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'effxhq/effx-sync-action@v1'
+        with:
+          directory: '${GITHUB_WORKSPACE}'
+        env:
+          EFFX_API_KEY: ${{ secrets.EFFX_API_KEY }}
+```
+
+:::note
+If you use a default branch other than `master`, e.g. `main`, please update the config appropriately.
+:::
+
+### Push `effx-cli.yaml` file to the default branch
+
+To check to see if it's working properly, the workflow can then be found under the Actions tab of the repository.
+
+![repo settings](/img/github_action_cli.png)
+
+Now sit back and let the workflow automatically lint and sync your YAML files to effx. 💪

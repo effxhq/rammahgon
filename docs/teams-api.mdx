@@ -1,0 +1,163 @@
+---
+title: Teams
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+
+All team endpoints leverage the [Team object](teams-model)
+
+## List All Teams
+
+#### `GET /v2/teams`
+
+### Parameters
+
+| Type   | Key            | Value                                                       |
+| ------ | -------------- | ----------------------------------------------------------- |
+| Header | X-Effx-Api-Key | Your API key                                                |
+| Query  | limit          | Integer. How many records to retrieve per request           |
+| Query  | offset         | Integer. The number of records to skip. Use for pagination. |
+
+### Response
+
+export const listResponse = [
+  {
+    name: 'teams',
+    type: 'list of team objects',
+    content: (
+      <>
+        <Markdown>See [Team object](teams-model)</Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'pagination',
+    type: 'pagination object',
+    content: (
+      <>
+        <Markdown>See [Pagination object](pagination-model)</Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={listResponse} />
+
+### Example
+
+```shell title="GET https://api.effx.io/v2/teams"
+curl -X GET "https://api.effx.io/v2/teams?limit=10&offset=1" \
+  -H "x-effx-api-key:${EFFX_API_KEY}"
+```
+
+## Read a Team
+
+#### `GET /v2/teams/:teamID`
+
+### Parameters
+
+| Type   | Key            | Value                                      |
+| ------ | -------------- | ------------------------------------------ |
+| Header | X-Effx-Api-Key | Your API key                               |
+| Path   | teamID         | The `ID` or `slug` of the team to retrieve |
+
+### Response
+
+The response is a single [Team object](teams-model)
+
+### Example
+
+```shell title="GET https://api.effx.io/v2/teams/:teamID"
+curl -X GET "https://api.effx.io/v2/teams/example-team" \
+  -H "x-effx-api-key:${EFFX_API_KEY}"
+```
+
+## Create or Update Teams
+
+#### `PUT /v2/teams`
+
+### Parameters
+
+| Type   | Key            | Value            |
+| ------ | -------------- | ---------------- |
+| Header | X-Effx-Api-Key | Your API key     |
+| Header | Content-Type   | application/json |
+
+### Request Body
+
+export const requestBody = [
+  {
+    name: 'version',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>Always `effx/v1`</Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'kind',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>Always `Team` or `team`</Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'spec',
+    type: 'team object',
+    content: (
+      <>
+        <Markdown>See [Team object](teams-model)</Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={requestBody} />
+
+### Response
+
+Status `204` on success with no response body.
+
+### Example
+
+```shell title="PUT https://api.effx.io/v2/teams"
+curl -X PUT "https://api.effx.io/v2/teams" \
+  -H "x-effx-api-key:${EFFX_API_KEY}" \
+  -H "content-type:application/json" \
+  -d '
+  {
+  "version": "effx/v1",
+  "kind": "Team",
+  "spec": {
+    "name": "authentication team",
+    "description": "something to describe what this team does",
+    "contact": {
+      "email": "engineering@effx.com",
+      "onCall": {
+        "label": "how to label the link",
+        "url": "https://app.effx.com"
+      },
+      "chat": {
+        "label": "how to label the link",
+        "url": "https://app.effx.com"
+      },
+      "issueTracker": {
+        "label": "how to label the link",
+        "url": "https://app.effx.com"
+      }
+    },
+    "tags": {
+      "go": "1.13.5",
+      "tier": "0",
+      "group": "auth"
+    },
+    "annotations": {
+      "effx.io/reports-to": "core-services"
+    }
+  }
+}'
+```

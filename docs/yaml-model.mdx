@@ -1,0 +1,54 @@
+---
+title: YAML Template
+---
+
+import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
+import Markdown from 'react-markdown';
+
+## Effx Files
+
+Most effx resources can be defined in `effx.yaml` files. These files service as the ground truth for your service metadata
+and should be stored in your version controlled repository.
+
+For convience when defining many files in one directory, you can name files to match the `*.effx.yaml` pattern.
+
+## Attributes
+
+export const attributes = [
+  {
+    name: 'version',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          Defines the schema version for the file. Always `effx/v1`.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'kind',
+    type: 'string',
+    content: (
+      <>
+        <Markdown>
+          References the `kind` of effx resource. Possible values are `team` and
+          `service`.
+        </Markdown>
+      </>
+    ),
+  },
+  {
+    name: 'spec',
+    type: 'object',
+    content: (
+      <>
+        <Markdown>
+          Contains the structured data for each Resource `kind`.
+        </Markdown>
+      </>
+    ),
+  },
+];
+
+<ModelAttributeGroup attributes={attributes} />
