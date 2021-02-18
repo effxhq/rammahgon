@@ -9,7 +9,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #3e81ff;
+  --ifm-color-primary: #3e81ff; // bluberry
   --ifm-color-primary-dark: #1e6cff;
   --ifm-color-primary-darker: #0e62ff;
   --ifm-color-primary-darkest: #004dde;
@@ -18,8 +18,9 @@
   --ifm-color-primary-lightest: #9dbfff;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Karla';
-  --ifm-background-color: #f8f8fa;
-  --ifm-font-color-base: #1f1852;
+  --ifm-background-color: #f8f8fa; // new snow
+  --ifm-font-color-base: #1f1852; // eggplant
+  --ifm-color-info: var(--ifm-color-primary);
 }
 
 html[data-theme='dark'] {

@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import Layout from "@theme/Layout";
+import ThemedImage from "@theme/ThemedImage";
 import useThemeContext from "@theme/hooks/useThemeContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import PropTypes from "prop-types";
@@ -10,8 +11,8 @@ import styles from "./styles.module.css";
 const features = [
   {
     title: "Get Started",
-    imageUrl: "img/getting-started.svg",
-    imageUrlDark: "img/getting-started.svg",
+    imageUrl: "img/getting-started-light.svg",
+    imageUrlDark: "img/getting-started-dark.svg",
     description: (
       <>
         Learn how to add all your services and teams efficiently. Getting your
@@ -22,8 +23,8 @@ const features = [
   },
   {
     title: "Call our API",
-    imageUrl: "img/api.svg",
-    imageUrlDark: "img/api.svg",
+    imageUrl: "img/api-light.svg",
+    imageUrlDark: "img/api-dark.svg",
     description: (
       <>
         Build your own workflow by calling our API. Perfect if you document services already with
@@ -34,8 +35,8 @@ const features = [
   },
   {
     title: "Automations",
-    imageUrl: "img/automations.svg",
-    imageUrlDark: "img/automations.svg",
+    imageUrl: "img/automations-light.svg",
+    imageUrlDark: "img/automations-dark.svg",
     description: (
       <>
         Accelerate your workflow with Continuous Integration Automations. Upload your
@@ -46,8 +47,8 @@ const features = [
   },
   {
     title: "Integrations",
-    imageUrl: "img/integrations.svg",
-    imageUrlDark: "img/integrations.svg",
+    imageUrl: "img/integrations-light.svg",
+    imageUrlDark: "img/integrations-dark.svg",
     description: (
       <>
         Import all of your data from the tools you already use.
@@ -62,7 +63,6 @@ function Feature(props) {
     imageUrl, imageUrlDark, title, description, clickToRoute,
   } = props;
   const { isDarkTheme } = useThemeContext();
-  const imgUrl = useBaseUrl(!isDarkTheme ? imageUrl : imageUrlDark);
   const history = useHistory();
   const route = useBaseUrl(clickToRoute);
 
@@ -72,14 +72,18 @@ function Feature(props) {
 
   return (
     <div
-      className={clsx("col col--5", styles.feature, isDarkTheme && styles.featureDark)}
+      className={clsx("col col--5", styles.feature, isDarkTheme && styles.featureDark, !isDarkTheme && styles.featureLight)}
       onClick={handleClick}
       role="button"
       tabIndex={0}
       onKeyPress={handleClick}
     >
       <div className="text--center">
-        <img className={styles.featureImage} src={imgUrl} alt={title} />
+        <ThemedImage
+          className={styles.featureImage}
+          sources={{ light: useBaseUrl(imageUrl), dark: useBaseUrl(imageUrlDark) }}
+          alt={title}
+        />
       </div>
       <h3>{title}</h3>
       <p>{description}</p>
@@ -96,8 +100,9 @@ Feature.propTypes = {
 };
 
 function Main() {
+  const { isDarkTheme } = useThemeContext();
   return (
-    <main className={styles.main}>
+    <main className={clsx(isDarkTheme && styles.mainDark)}>
       <div className={clsx("container", styles.welcome)}>
         <h1 style={{ fontFamily: "Poppins", fontWeight: "800" }}>Welcome to your effx wiki</h1>
         <h3>

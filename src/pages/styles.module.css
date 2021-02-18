@@ -20,9 +20,9 @@
   padding: 4rem 0 2rem 0;
 }
 
-.main {
-  background-color: #0a052c;
+.mainDark {
   color: white;
+  background-color: #0a052c;
 }
 
 .features {
@@ -36,6 +36,9 @@
   height: 200px;
   width: 200px;
   padding: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featureRow {
@@ -44,15 +47,18 @@
 
 .feature {
   border-radius: 0;
-  color: white;
 }
 
 .feature:hover {
   cursor: pointer;
+}
+
+.featureDark:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.featureDark {
+.featureLight:hover {
+  background-color: rgba(31, 24, 82, 0.05);
 }
 
 .reachOut {
