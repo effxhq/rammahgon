@@ -12,4 +12,4 @@ Our [vcs-connect](https://github.com/effxhq/vcs-connect) is now open-source!
 vcs-connect ingests `effx.yaml` files from your version control systems using a regularly scheduled cronjob. This is ideal
 for organizations who have many repositories or prefer indexing is done on the side.
 
-Learn more: [Docs->Automations->VCS Connect](../../../../docs/vcs-connect#getting-started)
+Learn more: [Docs->Automations->VCS Connect](/docs/vcs-connect#getting-started)
