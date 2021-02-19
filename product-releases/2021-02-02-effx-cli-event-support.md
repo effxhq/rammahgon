@@ -7,7 +7,7 @@ author_image_url: https://assets-global.website-files.com/5fd1d1ab54430e6b747263
 tags: [activity-feed, effx-cli, events]
 ---
 
-Our [effx-cli](https://github.com/effxhq/effx-cli) now supports posting [Events](../../../../docs/events-api).
+Our [effx-cli](https://github.com/effxhq/effx-cli) now supports posting [Events](/docs/events-api).
 
 <!--truncate-->
 

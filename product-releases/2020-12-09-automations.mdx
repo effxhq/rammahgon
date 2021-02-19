@@ -1,0 +1,40 @@
+---
+title: Automations
+author: Eric Uriostigue
+author_title: Product Lead
+author_url: https://github.com/euriostigue
+author_image_url: https://assets-global.website-files.com/5fd1d1ab54430e6b747263b2/5fd1d1ab54430eb7c8726407_eric%20headshot.jpeg
+tags: [automations, CI, CD, gitops]
+---
+
+We just made it easier to get your `effx.yaml` files uploaded.
+
+<!--truncate-->
+
+**Automations** are continuous integration templates that help you adopt a GitOps workflow.
+
+## Why GitOps
+
+Documentation is only helpful if you can trust it. By putting `effx.yaml` files where developers work everyday,
+we reduce the likelihood that the content goes out of date. Also, peer reviews are a great way to keep each other
+accountable.
+
+Staying organized is a team effort!
+
+## How it Works
+
+Our templates follow this general pattern:
+
+- A `lint` job for every pushed commit. Linting helps make sure our API will accept your `effx.yaml` changes.
+- A `sync` job for every commit pushed to your default branch. Only peer-reviewed changes will get reflected in our platform.
+
+All jobs will check the entire contents of the repo. We think it's best to put these files in the root directory of each service (be consistent).
+
+## Configuring Automations
+
+Find the detailed configuration instructions here:
+
+- [Github Actions](/docs/github)
+- [Gitlab CI](/docs/gitlab)
+- [CircleCI Orbs](/docs/circleci)
+- [VCS Connect](/docs/vcs-connect)
