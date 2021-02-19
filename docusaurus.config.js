@@ -85,9 +85,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
           editUrl:
-            "https://github.com/effxhq/rammahgon/edit/master/website/",
+            "https://github.com/effxhq/rammahgon/edit/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),
@@ -104,7 +103,7 @@ module.exports = {
         path: "./product-releases",
         showReadingTime: true,
         blogSidebarTitle: "Recent",
-        editUrl: "https://github.com/effxhq/rammahgon/edit/master/website/blog/",
+        editUrl: "https://github.com/effxhq/rammahgon/edit/main/",
       },
     ],
     "docusaurus-plugin-sass",
