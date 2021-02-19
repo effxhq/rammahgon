@@ -13,7 +13,7 @@ Our [effx-cli](https://github.com/effxhq/effx-cli) now supports posting [Events]
 
 ## Overview
 
-[Events](https://app.effx.com/events) make it easier to solve incidents by aggregating Continuous deployment, feature flags,
+[Events](https://app.effx.com/events) make it easier to solve incidents by aggregating Continuous Deployment, feature flags,
 experimentation, & capacity changes into a single timeline. This timeline can be examined globally or filtered to events relevant
 to a service.
 
