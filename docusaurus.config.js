@@ -1,8 +1,8 @@
 module.exports = {
   title: "effx | wiki",
   tagline: "The journey starts here",
-  url: "https://effxhq.github.io",
-  baseUrl: "/rammahgon/",
+  url: "https://effx.com/help",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
