@@ -50,3 +50,5 @@ typings/
 
 .docusaurus
 build
+
+.vscode
