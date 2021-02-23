@@ -1,0 +1,32 @@
+---
+title: Add your first Team
+---
+
+Much like services, adding teams is done by defining them via the GitOps workflow.  The simplest way to do this would be to create a `teamname.effx.yaml` file in a Git repo where it makes the most sense.
+
+Some of our users with monorepos will create a `teams` directory at the top-level of their repo and add a `teamname.effx.yaml` for each team within.  You can also create a `teams.effx.yaml` and define all of your teams in a single file as we support multiple objects per `effx.yaml` file.
+
+## Adding your first team
+
+Within the `spec` portion of the Team definition, you can define the following:
+
+- `name` - This is the name of the team which is the primary way the team will be displayed
+- `description` - The description is a string describing what the team does
+- `annotations` - Annotations are used to provide structured data within effx:
+  - `effx.io/reports-to` - denote the team that this team folds into for hierarchy purposes
+- `tags` - This is the primary way to create and provide values for the taxonomy of your service. They're free form so you can choose what makes the most sense for your organization. Some commonly-tags are `group` to denote a group of services, `tier` to denote the priority or importance of a service, and items to denote language e.g. `go` with a value of `1.15.5` like in the example.
+- `contact` - Provide contact information for a particular service. Available contact types are:
+  - `email` - email address for the team
+  - `onCall` - link to the on-call rotation for the team
+  - `chat` - link to the best chat room to contact the team
+  - `issueTracker` - where to file bugs for the team
+
+[View an example team here](teams-model.mdx)
+
+## Publishing your team(s)
+
+We provide various [Automations](automations-overview.mdx) to give you the ability to both verify (lint) and publish (sync) these `effx.yaml` files from your git repositories to us.  Jump to the automation that makes the most sense in your environment to learn more:
+- [GitHub Actions](github.mdx)
+- [GitLab CI/CD Jobs](gitlab.md)
+- [Circle CI Orbs](circleci.md)
+- [VCS Connect](vcs-connect.md)

@@ -1,5 +1,5 @@
 ---
-title: Gitlab CI
+title: GitLab CI
 ---
 
 We'll walk you through the workflow of validating and importing your services using GitLab's CI Job functionality which will help you reliably bring your `effx.yaml` files into effx.

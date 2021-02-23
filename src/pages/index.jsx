@@ -31,7 +31,7 @@ const features = [
         your own format.
       </>
     ),
-    clickToRoute: "/docs/services-api",
+    clickToRoute: "/docs/api-overview",
   },
   {
     title: "Automations",
@@ -43,7 +43,7 @@ const features = [
         services with GitOps.
       </>
     ),
-    clickToRoute: "/docs/github",
+    clickToRoute: "/docs/automations-overview",
   },
   {
     title: "Integrations",
