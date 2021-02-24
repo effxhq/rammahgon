@@ -29,4 +29,4 @@ jobs:
 
     - name: Copy files to S3
       if: github.ref == 'refs/heads/main'
-      run: aws s3 sync build/ s3://rammahgon
+      run: aws s3 sync --delete build/ s3://rammahgon/help/
