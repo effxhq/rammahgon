@@ -17,15 +17,23 @@ module.exports = {
       darkTheme: require("prism-react-renderer/themes/dracula"),
     },
     navbar: {
-      title: "effx | wiki",
+      title: "",
       logo: {
         alt: "effx",
-        src: "img/effx-logo.svg",
+        src: "img/effx-logo-light.svg",
+        srcDark: "img/effx-logo-dark.svg",
+        href: "https://effx.com",
+        target: "_self",
       },
       items: [
         {
+          to: "/",
+          label: "wiki Home",
+          position: "left",
+          activeBaseRegex: "^/help/$",
+        },
+        {
           to: "docs/",
-          activeBasePath: "docs",
           label: "Docs",
           position: "left",
         },
