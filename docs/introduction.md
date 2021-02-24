@@ -28,7 +28,7 @@ The `effx-cli` is the fundamental component behind most of our Automations. Ther
 
 It's encouraged to use the CLI on your local development environment for testing out your automated workflows.
 
-[Learn more about effx-cli](cli-overview.mdx).
+[Learn more about effx-cli](cli-overview.md).
 
 ### Jump to Automations
 
