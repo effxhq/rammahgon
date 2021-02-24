@@ -1,7 +1,7 @@
 module.exports = {
   title: "effx | wiki",
   tagline: "The simplest way to navigate and operate your microservices",
-  url: "https://effx.com/help",
+  url: "https://effx.com",
   baseUrl: "/help/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
