@@ -3,30 +3,40 @@ title: Introduction
 slug: /
 ---
 
-## Get Your Service Catalog Right
+Welcome to effx help where you'll find all the information you need to get the most out of the effx platform.  If you're unfamiliar with effx, you can either [learn more](https://effx.com) or [sign up for a free trial](https://app.effx.com/sign_up).
 
-Setting yourself up for success with effx starts with the service catalog. effx was built to support a GitOps workflow. _Why?_
-It's important that your catalog has all the right data. Peer review is an important part of this process.
+## How to get started
 
-effx resources are usually defined in `effx.yaml` files. You will learn how to define them and introduce automated workflows
-to keep your data up-to-date in these docs.
+To start using the effx platform, jump into our Getting Started guide and [**build your microservice catalog**](first-service.md) to learn how to add your first services and set up your initial integrations.
 
-There are several ways to upload resources:
+You can also jump directly to sections in our Getting Started guide for:
+- [Setting up Service Standards](first-standard.mdx)
+- [Tracking your first Migration](first-migration.mdx)
+- [Using Slack + effx](integrations.md#slack)
 
-### Use the CLI
+## Accessing effx programmatically
 
-The CLI is the fundamental component behind most of our Automations. There are commands to help you work with `effx.yaml` files.
-It's encouraged to use the CLI on your local development environment for testing out your automated workflows.
+We provide numerous ways for you to incorporate your data with effx programmatically, whether it be through our API directly, using our `effx-cli` tool, or through Automations:
 
 ### Call our API
 
-The API provides flexibility for users that already have service metadata defined in other formats.
+Our API provides flexibility for users that already have service metadata defined in other formats.  [Learn more about our API](api-overview.mdx).
+
+### Use the CLI
+
+The `effx-cli` is the fundamental component behind most of our Automations. There are commands to help you work with `effx.yaml` files.
+
+It's encouraged to use the CLI on your local development environment for testing out your automated workflows.
+
+[Learn more about effx-cli](cli-overview.md).
 
 ### Jump to Automations
 
-We offer convenient templates for enabling GitOps with popular CI systems.
+We offer convenient templates for enabling GitOps with popular version control and continuous integration systems.
 
-## Fetch your API Key
+[Learn more about our Automations](automations-overview.mdx).
+
+### Fetch your API Key
 
 Retrieve your API key from within effx by navigating to [**Account Settings**](https://app.effx.com/account_settings). For convenience, add it as an environment variable.
 Most of our examples will refer to your API key from the environment.
@@ -35,4 +45,16 @@ Most of our examples will refer to your API key from the environment.
 export EFFX_API_KEY="Paste your key here"
 ```
 
-Continue through this section to upload a starter service.
+
+## Frequently Asked Questions
+
+This section will be updated frequently to answer common questions from our users & community.
+
+1. [How do I add dependencies for my services?](first-service.md#defining-service-dependencies)
+2. [How do I define criteria for my Service Standards?](first-standard.mdx#service-standard-criteria)
+3. [How do I add a team to effx?](first-team.mdx)
+
+
+## Contact Support
+
+If you're unable to get the help you need, please submit a support ticket at [support@effx.com](mailto:support@effx.com).

@@ -1,0 +1,41 @@
+---
+title: Define your Service Standards
+sidebar_label: Define your Service Standards
+---
+
+Defining your first Service Standard is one of the key parts of ensuring quality across your fleet of microservices.  In order to define the standard, you'll need to be an administrator within your effx account.
+
+## Service Standard Criteria
+
+In order to use standards effectively, you'll need to understand the criteria you can use for creating rules for your standards.
+
+We support the following types:
+  - Service Metadata
+  - Service tags
+  - Service events
+
+### Service metadata
+
+Service metadata is information from within your Service profile that can be used to check for the existence of a particular piece of metadata, or a count of them.
+
+Fields like `owner`, `on call`, `issue tracker`, and `chat` check for existence of those fields for a particular service.  This is particularly useful when you want to ensure that every service has an owner, on-call rotation, etc.
+
+The `linkGroups` type is a bit special in that `linkGroups` are completely user-defined in Service profiles.  Learn more about [linkGroups here](first-service.md#linkgroups-explained).  Let's say you have a linkGroup called `Dashboards` and you want to make sure that every service has at least two dashboards defined.  You can define that as below:
+
+![linkGroups Criteria](/img/criteria-dashboards.png)
+
+*linkGroups are case-sensitive so Dashboards will not match dashboards*
+
+### Service tags
+
+Tags are another way of ensuring particular definitions exist for a service.  There are two options
+- `tag with a key`: This is a simple check to make sure that a tag is defined for a service.  For example, if you want to ensure that every service has a `tier` defined, you could add that here.
+- `semantic version tag`: Our semantic versioning check is a common way to ensure that a service is up-to-date for a particular tag.  For example, if your services have a `go` tag, you could use that to ensure that all services using `go` have a version above `1.15.0`:
+
+![semantic versioning](/img/semantic-tags.png)
+
+### Service events
+
+Using events to ensure that a service has had a particular action taken within a time window is a good way to ensure quality for a service.  Out of the box, we provide two types to measure events: `alert` and `deploy`
+
+An event with a `type` of `alert` and `deploy` can be used to measure how frequently these events occur and criteria can be used to ensure they are happening enough (or have happened too much, in the case of alerts!)
