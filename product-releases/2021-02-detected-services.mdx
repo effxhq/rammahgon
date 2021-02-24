@@ -4,12 +4,13 @@ author: William Li
 author_title: Product Engineering Lead
 author_url: https://github.com/weeyum
 author_image_url: https://assets-global.website-files.com/5fd1d1ab54430e6b747263b2/5fd1d1ab54430ee03472641b_william%20headshot.png
-tags: [integrations]
+tags: [integrations, service-detection]
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-effx can now help you populate and maintain the list of services in your service catalog. Simply enable
+Service Detection helps populate and maintain the list of services in your service catalog. Simply enable an integration and
+we'll detect services in your infrastructure.
 
 <!--truncate-->
 
@@ -17,7 +18,7 @@ effx can now help you populate and maintain the list of services in your service
 
 When building your service catalog, one of the first problems you will encounter is coming up with a list of all of your services.
 
-effx will continually scan your infrastructure for services and suggest missing ones for you to add.
+With Detected Services, effx will continually scan your infrastructure for services and suggest missing ones for you to add.
 
 All you need to do is set up one of our many integrations and we'll start populating a list of services that we have detected.
 
@@ -30,21 +31,23 @@ All you need to do is set up one of our many integrations and we'll start popula
 
 Okay, this all sounds good, but how will it work for you?
 
-We've invested time in making sure we have many different ways for us to scan your infrastructure. Link to integrations supports here...
+We have many different integrations for us to scan your infrastructure. Link to integrations supports here...
 
 ## Stay on top of newly added services
 
-Your catalog is not static, it is constantly growing, and effx will be able to quickly identify newly added services.
+Your catalog is not static, is constantly growing, and difficult to maintain accuracy.
 
-We'll be able to identify these services within seconds of them being added to your ecosystem.
+We'll be able to identify these services within seconds of them being added or changed in your ecosystem. The detected services
+catalog serves as a reference for "what's live" to make it easier to identify missing information in your documentation.
 
-In addition to discovering new services, you'll have full control of the list to make sure you're able to stay on top of the suggestions.
+In addition to discovering services, you'll have full control of the list to make sure you're able to stay on top of the suggestions.
 
-<img alt='Track New Services' src={useBaseUrl('img/detected-services/highlighted-features.png')} />
+<img
+  alt='Track New Services'
+  src={useBaseUrl('img/detected-services/highlighted-features.png')}
+/>
 
 ## Straight to YAML
-
-Writing YAML files is a pain. You need to learn syntax specific to the ecosystem the file is to be used for.
 
 effx will help you generate a corresponding YAML file for detected so that you can commit it to source control.
 
@@ -52,4 +55,7 @@ On top of just generating the file, the metadata will already be filled in corre
 
 For example, if we detect your service in Pagerduty, we remove the hassle of finding the correct on call link and it is already filled in appropriately!
 
-<img alt='YAML Editor' src={useBaseUrl('img/detected-services/yaml-editor.gif')} />
+<img
+  alt='YAML Editor'
+  src={useBaseUrl('img/detected-services/yaml-editor.gif')}
+/>
