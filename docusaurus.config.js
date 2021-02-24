@@ -1,6 +1,6 @@
 module.exports = {
   title: "effx | wiki",
-  tagline: "The journey starts here",
+  tagline: "The simplest way to navigate and operate your microservices",
   url: "https://effx.com/help",
   baseUrl: "/help/",
   onBrokenLinks: "throw",
@@ -19,7 +19,7 @@ module.exports = {
     navbar: {
       title: "effx | wiki",
       logo: {
-        alt: "My Site Logo",
+        alt: "effx",
         src: "img/effx-logo.svg",
       },
       items: [
