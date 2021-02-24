@@ -1,5 +1,6 @@
 ---
 title: CLI Overview
+sidebar_label: Overview
 ---
 
 effx provides a command line tool that facilates validation and synchronization of effx resources in your development environment.

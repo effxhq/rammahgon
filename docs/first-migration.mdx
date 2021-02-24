@@ -19,10 +19,13 @@ A migration is comprised of the following parts
 ### Migration query defined
 
 The migration query is key to measuring the status of the migration.  There are two ways of defining the query:
-`Query by value`: Use this type of query when you want all of your tags to eventually be equal to a particular value.  For example, if you're moving all of your `deployment` (key) to `kubernetes` (value), you could define your Query as such:
+
+
+**Query by value**: Use this type of query when you want all of your tags to eventually be equal to a particular value.  For example, if you're moving all of your `deployment` (key) to `kubernetes` (value), you could define your Query as such:
 
 ![Query by value](/img/migration-kubernetes.png)
 
-`Query by version`: Use this type of query when you want to compare semantic version tags.  For example, if you're wanting to upgrade all of your `go` services to `1.15.0` or greater, you can use this type of query:
 
-![Query by value](/img/migration-go.png) 
+**Query by version**: Use this type of query when you want to compare semantic version tags.  For example, if you're wanting to upgrade all of your `go` services to `1.15.0` or greater, you can use this type of query:
+
+![Query by value](/img/migration-go.png)

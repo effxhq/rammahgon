@@ -20,7 +20,7 @@ We provide numerous ways for you to incorporate your data with effx programmatic
 
 ### Call our API
 
-Our API provides flexibility for users that already have service metadata defined in other formats.  Learn more about our API in the API Overview.
+Our API provides flexibility for users that already have service metadata defined in other formats.  [Learn more about our API](api-overview.mdx).
 
 ### Use the CLI
 
@@ -28,13 +28,13 @@ The `effx-cli` is the fundamental component behind most of our Automations. Ther
 
 It's encouraged to use the CLI on your local development environment for testing out your automated workflows.
 
-Learn more about effx-cli.
+[Learn more about effx-cli](cli-overview.mdx).
 
 ### Jump to Automations
 
 We offer convenient templates for enabling GitOps with popular version control and continuous integration systems.
 
-Learn more about our Automations.
+[Learn more about our Automations](automations-overview.mdx).
 
 ### Fetch your API Key
 

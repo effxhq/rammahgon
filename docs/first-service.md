@@ -15,39 +15,17 @@ The first step is to generate your first `effx.yaml` file for your initial servi
 
 ## Adding your first service
 
-We've created a nifty [in-app YAML wizard](https://app.effx.com/yaml/wizard) to guide you through the process of creating your first service, but if you prefer to write the YAML yourself, below is the full definition of how to construct your own `effx.yaml`.  You can see a [full example](#effx-yaml-example) below.
+We've created a nifty [in-app YAML wizard](https://app.effx.com/yaml/wizard) to guide you through the process of creating your first service, but if you prefer to write the YAML yourself, you can view the [full resource specification for a Service](services-model.mdx).
 
-### effx-yaml definition
+A [full example-service](services-model.mdx#yaml-reference) definition can be used for reference as well.
 
-The `effx.yaml` file is the source of truth for your services within effx. The format is as follows:
-
-Within the `spec` portion of the Service definition, you can define the following:
-
-- `name` - This is the name of the service which is the primary way the service will be displayed
-- `description` - The description is a string describing what the service does -- engineers will be able to discover the service by searching for terms in the description
-- `annotations` - Annotations are used to provide structured data within effx:
-  - `effx.io/owned-by` - denote the team that owns the service
-- `tags` - This is the primary way to create and provide values for the taxonomy of your service. They're free form so you can choose what makes the most sense for your organization. Some commonly-tags are `group` to denote a group of services, `tier` to denote the priority or importance of a service, and items to denote language e.g. `go` with a value of `1.15.5` like in the example.
-- `contact` - Provide contact information for a particular service. Available contact types are:
-  - `email` - email address for who to contact about the service
-  - `onCall` - link to the on-call rotation for the service
-  - `chat` - link to the best chat room to discuss issues with the service
-  - `issueTracker` - where to file bugs for the service
-- `linkGroups` - Link Groups provide you the ability to organize links to external services or tools where you can find more information about a service. Common linkGroups are:
-  - `dashboards` - where to find observability dashboards (APM, tracing, logging)
-  - `version control` - where is the repository for this service
-  - `documentation` - where is the service's documentation or API
-  - `runbooks` - where are the runbooks for the service?
-  - linkGroups are flexible, so you can use them however makes sense to structure your links in the user interface. You can provide multiple `links` structures per `linkGroup`, each requiring a `label` and `url`. The `label` appears on the button for the link within the user interface.
-- `dependencies` - Define dependencies on other services
-  - `manual` - A section for explicit declarations (array). Each dependency has a `kind` of entity to depend on (defaults to "service") & a `name` which matches a dependency by the kind's name
-
+Beyond the specification, a few sections are described a bit more in detail below, especially with how they're used within other parts of the platform:
 
 ### Tags explained
 
-Tags are a key part of the Service profile and are used throughout the rest of the effx platform for both discovery, reporting, and understanding your services.  
+Tags are a key part of the Service profile and are used throughout the rest of the effx platform for discovery, reporting, tracking migrations and measurements in Service Standards.
 
-They are the ultimate representation of the taxonomy for how you structure your services within your company.  For some companies, this could be using a `tier` system, or a `group` taxonomy.  Others have used tags to define things like `gdpr` as true to ensure that something is noted as being in scope for GDPR.  
+They are the ultimate representation of the taxonomy for how you structure your services within your company.  For some companies, this could be using a `tier` system, or a `group` taxonomy.  Others have used tags to define things like `pci` as true to ensure that something is noted as being in scope for PCI compliance.  
 
 These are as flexible as you need them to be and you can define as many as you need for a service.
 
@@ -69,54 +47,6 @@ Currently, we support the ability to define these relationships via the `effx.ya
 
 If a service does not exist within effx, you'll still see the Service profile but will be asked to create an `effx.yaml` for it.  
 
-
-### effx-yaml example
-
-```yaml
----
-version: effx/v1
-kind: service
-spec:
-  name: "example-service"
-  description: "example description for the example-service"
-  annotations:
-    effx.io/owned-by: "example-team"
-  tags:
-    group: "example"
-    tier: "1"
-    go: "1.15.5"
-  contact:
-    email: "support@effx.com"
-    chat:
-      label: "#community"
-      url: "https://m11s.slack.com/archives/C01E19PPKNH"
-    onCall:
-      label: "pagerduty schedule"
-      url: "https://docs.effx.com/#oncall-links"
-  linkGroups:
-    - label: "Dashboards"
-      links:
-        - label: "Datadog"
-          url: "https://app.datadoghq.com/dashboard/y2w-wt6-wi8/effx-platform-status"
-    - label: "Runbooks"
-      links:
-        - label: "Runbook"
-          url: "https://blog.effx.com/how-to-write-a-runbook/"
-    - label: "Version Control"
-      links:
-        - label: "GitHub"
-          url: "https://github.com/effxhq/effx-sync-action"
-    - label: "Documentation"
-      links:
-        - label: "API Documentation"
-          url: "https://docs.effx.com/#api-documentation"
-  dependencies:
-    manual:
-      # Both describe dependencies on other services by name
-      - kind: "service"
-        name: "arrakis"
-      - name: "caladan"
-```
 
 ## Publishing your services to effx
 

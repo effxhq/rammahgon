@@ -8,20 +8,7 @@ Some of our users with monorepos will create a `teams` directory at the top-leve
 
 ## Adding your first team
 
-Within the `spec` portion of the Team definition, you can define the following:
-
-- `name` - This is the name of the team which is the primary way the team will be displayed
-- `description` - The description is a string describing what the team does
-- `annotations` - Annotations are used to provide structured data within effx:
-  - `effx.io/reports-to` - denote the team that this team folds into for hierarchy purposes
-- `tags` - This is the primary way to create and provide values for the taxonomy of your service. They're free form so you can choose what makes the most sense for your organization. Some commonly-tags are `group` to denote a group of services, `tier` to denote the priority or importance of a service, and items to denote language e.g. `go` with a value of `1.15.5` like in the example.
-- `contact` - Provide contact information for a particular service. Available contact types are:
-  - `email` - email address for the team
-  - `onCall` - link to the on-call rotation for the team
-  - `chat` - link to the best chat room to contact the team
-  - `issueTracker` - where to file bugs for the team
-
-[View an example team here](teams-model.mdx)
+Creating your first team is simple and can easily done by referencing our [full specification for Teams](teams-model.mdx).  In addition, we've provided [full example for an example-team](teams-model.mdx#yaml-reference) that can be modified or used as reference.
 
 ## Publishing your team(s)
 
