@@ -2,7 +2,7 @@ module.exports = {
   title: "effx | wiki",
   tagline: "The journey starts here",
   url: "https://effx.com/help",
-  baseUrl: "/",
+  baseUrl: "/help/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
