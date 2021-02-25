@@ -10,6 +10,9 @@ module.exports = {
   projectName: "rammahgon", // Usually your repo name.
   themeConfig: {
     hideableSidebar: true,
+    googleAnalytics: {
+      trackingID: "UA-105847863-4",
+    },
     colorMode: {
     },
     prism: {
@@ -115,5 +118,6 @@ module.exports = {
       },
     ],
     "docusaurus-plugin-sass",
+    "@docusaurus/plugin-google-analytics",
   ],
 };
