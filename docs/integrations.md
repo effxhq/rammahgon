@@ -8,7 +8,7 @@ for convenient data fetching to event harvesters from sources like Datadog.
 
 ## Installation
 
-Navigate to the [Integrations](https://api.effx.com/integrations) in-app page for installation instructions.
+Navigate to the [Integrations](https://app.effx.com/integrations) in-app page for installation instructions.
 
 ## Available Integrations
 
