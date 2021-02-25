@@ -13,8 +13,6 @@ module.exports = {
     googleAnalytics: {
       trackingID: "UA-105847863-4",
     },
-    colorMode: {
-    },
     prism: {
       theme: require("prism-react-renderer/themes/dracula"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
@@ -118,6 +116,5 @@ module.exports = {
       },
     ],
     "docusaurus-plugin-sass",
-    "@docusaurus/plugin-google-analytics",
   ],
 };
