@@ -10,7 +10,8 @@ module.exports = {
   projectName: "rammahgon", // Usually your repo name.
   themeConfig: {
     hideableSidebar: true,
-    colorMode: {
+    googleAnalytics: {
+      trackingID: "UA-105847863-4",
     },
     prism: {
       theme: require("prism-react-renderer/themes/dracula"),
