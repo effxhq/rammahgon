@@ -1,8 +1,8 @@
 module.exports = {
   title: "effx | wiki",
-  tagline: "The journey starts here",
-  url: "https://effxhq.github.io",
-  baseUrl: "/rammahgon/",
+  tagline: "The simplest way to navigate and operate your microservices",
+  url: "https://effx.com",
+  baseUrl: "/help/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -10,22 +10,31 @@ module.exports = {
   projectName: "rammahgon", // Usually your repo name.
   themeConfig: {
     hideableSidebar: true,
-    colorMode: {
+    googleAnalytics: {
+      trackingID: "UA-105847863-4",
     },
     prism: {
       theme: require("prism-react-renderer/themes/dracula"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
     },
     navbar: {
-      title: "effx | wiki",
+      title: "",
       logo: {
-        alt: "My Site Logo",
-        src: "img/effx-logo.svg",
+        alt: "effx",
+        src: "img/effx-logo-light.svg",
+        srcDark: "img/effx-logo-dark.svg",
+        href: "https://effx.com",
+        target: "_self",
       },
       items: [
         {
+          to: "/",
+          label: "wiki Home",
+          position: "left",
+          activeBaseRegex: "^/help/$",
+        },
+        {
           to: "docs/",
-          activeBasePath: "docs",
           label: "Docs",
           position: "left",
         },
