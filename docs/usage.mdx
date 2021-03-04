@@ -37,6 +37,17 @@ import CodeBlock from '@theme/CodeBlock';
       effx sync -f effx.yaml -k ${`{EFFX_API_KEY}`}
       {'\n'}
     </CodeBlock>
+    <br />
+    <br />
+    The effx cli automatically detects language and version information 
+    by default. 
+    To Disable Automatic Language and Version Detection:
+    <br />
+    <br />
+    <CodeBlock className='language-shell' metastring={'title="Disable Version Detection"'}>
+      effx.go sync -d . -k ${`{EFFX_API_KEY}`} --disable-languauge-detection
+    </CodeBlock>
+
   </TabItem>
   <TabItem value='event'>
     Post an Event to your Event Feed (API Key required) (Pro Tier Only)
