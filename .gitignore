@@ -51,4 +51,7 @@ typings/
 .docusaurus
 build
 
+# MacOS metadata file:
+.DS_STORE
+
 .vscode
