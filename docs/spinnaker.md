@@ -31,8 +31,8 @@ webhook:
         X-Effx-Api-Key:
           - <EFFX_API_KEY>
         Content-Type:
-          - application/json
-      url: https://api.effx.io/v2/events
+          - 'application/json'
+      url: 'https://api.effx.io/v2/events'
       payload: '{
         "name": "Spinnaker - Webhook Stage",
         "description": "${execution.getName()} triggered by ${trigger.user} (${trigger.type})",
@@ -45,14 +45,14 @@ webhook:
           }
         ],
         "integration": {
-          "name": "spinnaker",
+          "name": "spinnaker"
         },
         "service": {
           "name": "${parameterValues["service"]}"
         }
       }'
       parameters:
-        - label: Effx Service
-          name: service
-          description: The Effx Service for this Event
+        - label: 'Effx Service'
+          name: 'service'
+          description: 'The Effx Service for this Event'
 ```
