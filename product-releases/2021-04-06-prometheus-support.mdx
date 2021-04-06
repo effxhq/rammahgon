@@ -10,9 +10,9 @@ tags: []
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Last week, the effx platform engineering team landed support for [Prometheus][].
-Prometheus is a well know and supported open source monitoring solution.
+Prometheus is a well known and supported open source monitoring solution.
 Our integration surfaces alert data in the effx platform.
-This provides insights into the changes and frequency of alerts across your teams.
+This provides insights into the changes and frequency of alerts across the teams you follow.
 
 [Prometheus]: https://prometheus.io/
 
@@ -22,7 +22,7 @@ Using information from Prometheus, effx is able to detect services in your infra
 You can view these services on your [detected services](https://app.effx.com/detected_services) page.
 
 <p>
-  <img alt="" class="img-pad"
+  <img alt="detected services screenshot"
       src={useBaseUrl('img/integrations/prometheus-detected.png')}/>
 </p>
 
@@ -30,7 +30,7 @@ In addition to detecting services, alerts sent to effx are surfaced in your serv
 Each alert includes links to AlertManager, Prometheus, and any annotations ending with `_url` (great for including links to runbooks).
 
 <p>
-  <img alt="" class="img-pad"
+  <img alt="feed screenshot"
       src={useBaseUrl('img/integrations/prometheus-feed.png')}/>
 </p>
 
@@ -44,5 +44,5 @@ Head on over to your [integrations][] page to learn more about how to set it up.
 <p></p>
 
 [Sign up]: https://app.effx.com/sign_up
-[quick start]: #TBD
+[quick start]: /docs/integrations/prometheus#quick-start-with-minikube
 [integrations]: https://app.effx.com/integrations
