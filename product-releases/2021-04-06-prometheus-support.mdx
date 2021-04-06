@@ -1,0 +1,48 @@
+---
+title: Support for Prometheus
+author: Mya Pitzeruse
+author_title: Platform Engineering Lead
+author_url: https://github.com/mjpitz
+author_image_url: https://avatars.githubusercontent.com/u/690578?s=460&u=9fdfa6c3ed39f7770c587b3cf0402fd851baeee8&v=4
+tags: []
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Last week, the effx platform engineering team landed support for [Prometheus][].
+Prometheus is a well know and supported open source monitoring solution.
+Our integration surfaces alert data in the effx platform.
+This provides insights into the changes and frequency of alerts across your teams.
+
+[Prometheus]: https://prometheus.io/
+
+<!--truncate-->
+
+Using information from Prometheus, effx is able to detect services in your infrastructure.
+You can view these services on your [detected services](https://app.effx.com/detected_services) page.
+
+<p>
+  <img alt="" class="img-pad"
+      src={useBaseUrl('img/integrations/prometheus-detected.png')}/>
+</p>
+
+In addition to detecting services, alerts sent to effx are surfaced in your service activity feed.
+Each alert includes links to AlertManager, Prometheus, and any annotations ending with `_url` (great for including links to runbooks).
+
+<p>
+  <img alt="" class="img-pad"
+      src={useBaseUrl('img/integrations/prometheus-feed.png')}/>
+</p>
+
+Curious about how it works?
+[Sign up][] today and give it a try!
+You can even leverage our [quick start][] guide to get up and running in no time.
+
+Already a customer?
+Head on over to your [integrations][] page to learn more about how to set it up.
+
+<p></p>
+
+[Sign up]: https://app.effx.com/sign_up
+[quick start]: #TBD
+[integrations]: https://app.effx.com/integrations
