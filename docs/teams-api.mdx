@@ -13,11 +13,12 @@ All team endpoints leverage the [Team object](teams-model)
 
 ### Parameters
 
-| Type   | Key            | Value                                                       |
-| ------ | -------------- | ----------------------------------------------------------- |
-| Header | X-Effx-Api-Key | Your API key                                                |
-| Query  | limit          | Integer. How many records to retrieve per request           |
-| Query  | offset         | Integer. The number of records to skip. Use for pagination. |
+| Type   | Key            | Value                                                                                                   |
+| ------ | -------------- | --------------------------------------------------------------------------------------------------------|
+| Header | X-Effx-Api-Key | Your API key                                                                                            |
+| Query  | limit          | Integer. How many records to retrieve per request                                                       |
+| Query  | offset         | Integer. The number of records to skip. Use for pagination.                                             |
+| Query  | query          | String. Used to match by object name and description. It will also return results that partially match. |
 
 ### Response
 
