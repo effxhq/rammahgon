@@ -1,0 +1,46 @@
+---
+title: Support for Sonarqube
+author: William Li
+author_title: Product Engineering Lead
+author_url: https://github.com/weeyum
+author_image_url: https://assets-global.website-files.com/5fd1d1ab54430e6b747263b2/5fd1d1ab54430ee03472641b_william%20headshot.png
+tags: []
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+In the past few days, the effx platform engineering team landed support for [Sonarqube][].
+Sonarqube is an open-source platform developed by SonarSource for continuous inspection of code quality.
+Sonar does static code analysis, which provides a detailed report of bugs, code smells, vulnerabilities, code duplications.
+
+[Sonarqube]: https://sonarqube.com/
+
+<!--truncate-->
+
+Using information from Sonarqube, effx is able to detect services in your infrastructure.
+You can view these services on your [detected services](https://app.effx.com/detected_services) page.
+
+<p>
+  <img alt="detected services screenshot"
+      src={useBaseUrl('img/integrations/sonarqube-detected.png')}/>
+</p>
+
+In addition to detecting services, job statuses sent to effx are surfaced in your service activity feed.
+
+<p>
+  <img alt="feed screenshot"
+      src={useBaseUrl('img/integrations/sonarqube-feed.png')}/>
+</p>
+
+Curious about how it works?
+[Sign up][] today and give it a try!
+You can even leverage our [quick start][] guide to get up and running in no time.
+
+Already a customer?
+Head on over to your [integrations][] page to learn more about how to set it up.
+
+<p></p>
+
+[Sign up]: https://app.effx.com/sign_up
+[quick start]: /docs/integrations/prometheus#quick-start-with-minikube
+[integrations]: https://app.effx.com/integrations
