@@ -5,7 +5,7 @@ module.exports = {
     API: ["api-overview", "services-api", "teams-api", "events-api", "config-api"],
     CLI: ["cli-overview", "installation", "usage"],
     Automations: ["automations-overview", "github", "gitlab", "circleci", "spinnaker", "vcs-connect"],
-    Integrations: ["integrations"],
+    Integrations: ["integrations", "integrations/prometheus"],
     "Resource Types": ["yaml-model", "services-model", "teams-model", "events-model", "pagination-model", "errors-model"],
     Admins: ["sso"],
   },
