@@ -1,0 +1,46 @@
+---
+title: Support for Sentry
+author: Mya Pitzeruse
+author_title: Platform Engineering Lead
+author_url: https://github.com/mjpitz
+author_image_url: https://avatars.githubusercontent.com/u/690578?s=460&u=9fdfa6c3ed39f7770c587b3cf0402fd851baeee8&v=4
+tags: []
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Last week, the effx platform engineering team landed support for [Sentry][].
+Sentry is a popular application monitoring platform that's trusted by [many](https://sentry.io/customers/).
+Our integration surfaces issue and alert data in the effx platform.
+This provides insights into the changes and frequency of alerts across your services.
+
+[Sentry]: https://sentry.io/
+
+<!--truncate-->
+
+Using project information from Sentry, effx is able to discover services.
+This makes it easier for you to document the services by building up metadata about each service before exporting YAML.
+
+<p>
+  <img alt="detected services screenshot"
+      src={useBaseUrl('img/integrations/sentry-detected.png')}/>
+</p>
+
+In addition to discovering services, all issues and alerts effx receives for a project will be added to it's associated services' event feed.
+This makes it quick for your engineering team to get a high level view of what's going on with your application across several integrations.
+
+<p>
+  <img alt="feed screenshot"
+      src={useBaseUrl('img/integrations/sentry-feed.png')}/>
+</p>
+
+Curious about how it works?
+[Sign up][] today and give it a try!
+
+Already a customer?
+Head on over to your [integrations][] page to learn more about how to set it up.
+
+<p></p>
+
+[Sign up]: https://app.effx.com/sign_up
+[integrations]: https://app.effx.com/integrations
