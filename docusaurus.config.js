@@ -13,6 +13,10 @@ module.exports = {
     googleAnalytics: {
       trackingID: "UA-105847863-4",
     },
+    algolia: {
+      apiKey: "902e2ebf5366c7039a2b106aec1b0555",
+      indexName: "effx",
+    },
     prism: {
       theme: require("prism-react-renderer/themes/dracula"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
