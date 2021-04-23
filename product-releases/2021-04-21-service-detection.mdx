@@ -1,0 +1,65 @@
+---
+title: Integration Derived Services
+author: Tyler Tsunekawa
+author_title: Software Engineer
+tags: [integrations, service-detection]
+author_url: https://github.com/ttsunekawa
+author_image_url: https://assets-global.website-files.com/5fd1d1ab54430e3590726397/5fd1d1ab54430e379c7264e2_tyler-headshot.png
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Get your services detected and into our platform faster and hassle-free using our new Detected Services flow!
+
+<!--truncate-->
+
+## No yaml, no problem
+
+effx has previously required your platform to create `yaml` file for us to consume.
+
+While this is still encouraged, we've developed a new way to get your services into effx without ever having to write a `yaml` file!
+
+## Services Detected
+
+Service detection has been added to the side bar for easier access!
+
+<img
+  alt='Detected Services NavBar'
+  src={useBaseUrl('img/merged-detected-services/detected-services-nav-bar.png')}
+/>
+
+## Create Services through the UI
+
+effx detects your services from multiple sources and lets you know where all of the data we're getting is coming from.
+
+<img
+  alt='Detected Services List'
+  src={useBaseUrl('img/merged-detected-services/detected-services-list.png')}
+/>
+
+After detecting your services, we use the different pieces of your service's metadata from your integrations and allow you to create it through the UI.
+
+Simply click the add button!
+
+<!-- Screenshot here of a created service with metadata filled in showing source icons etc. -->
+
+## Dynamic services
+
+The more integrations, the more metadata effx will be able to fill out on your service page.
+
+## Why do we still need yaml?
+
+`yaml` data is the source of truth that you can provide. There are certain tags (ie: tier tags) that can only be provided by your organization.
+
+These specific tags might be useful in conjunction with [Service Standards 360][] or [Migrations][].
+
+However, it's no longer required and you can use effx without ever having to add a `yaml` file to your repo!
+
+Curious about how it works?
+[Sign up][] today and give it a try!
+
+<p></p>
+
+[Service Standards 360]: /help/releases/2021/03/04/service-standards-360
+[Migrations]: /help/releases/2021/02/08/migrations
+[Sign up]: https://app.effx.com/sign_up
