@@ -15,9 +15,9 @@ The first step is to generate your first `effx.yaml` file for your initial servi
 
 ## Adding your first service
 
-We've created a nifty [in-app YAML wizard](https://app.effx.com/yaml/wizard) to guide you through the process of creating your first service, but if you prefer to write the YAML yourself, you can view the [full resource specification for a Service](services-model.mdx).
+We've created a nifty [in-app YAML wizard](https://app.effx.com/yaml/wizard) to guide you through the process of creating your first service, but if you prefer to write the YAML yourself, you can view the [full resource specification for a Service](/docs/services-model.mdx).
 
-A [full example-service](services-model.mdx#yaml-reference) definition can be used for reference as well.
+A [full example-service](/docs/services-model.mdx#yaml-reference) definition can be used for reference as well.
 
 Beyond the specification, a few sections are described a bit more in detail below, especially with how they're used within other parts of the platform:
 
@@ -50,8 +50,8 @@ If a service does not exist within effx, you'll still see the Service profile bu
 
 ## Publishing your services to effx
 
-We provide various [Automations](automations-overview.mdx) to give you the ability to both verify (lint) and publish (sync) these `effx.yaml` files from your git repositories to us.  Jump to the automation that makes the most sense in your environment to learn more:
-- [GitHub Actions](github.mdx)
-- [GitLab CI/CD Jobs](gitlab.md)
-- [Circle CI Orbs](circleci.md)
-- [VCS Connect](vcs-connect.md)
+We provide various [Automations](/docs/automations-overview.mdx) to give you the ability to both verify (lint) and publish (sync) these `effx.yaml` files from your git repositories to us.  Jump to the automation that makes the most sense in your environment to learn more:
+- [GitHub Actions](/docs/github.mdx)
+- [GitLab CI/CD Jobs](/docs/gitlab.md)
+- [Circle CI Orbs](/docs/circleci.md)
+- [VCS Connect](/docs/vcs-connect.md)
