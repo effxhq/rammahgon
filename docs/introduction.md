@@ -7,12 +7,12 @@ Welcome to effx help where you'll find all the information you need to get the m
 
 ## How to get started
 
-To start using the effx platform, jump into our Getting Started guide and [**build your microservice catalog**](/docs/first-service.md) to learn how to add your first services and set up your initial integrations.
+To start using the effx platform, jump into our Getting Started guide and [**build your microservice catalog**](/docs/first-service) to learn how to add your first services and set up your initial integrations.
 
 You can also jump directly to sections in our Getting Started guide for:
-- [Setting up Service Standards](/docs/first-standard.mdx)
-- [Tracking your first Migration](/docs/first-migration.mdx)
-- [Using Slack + effx](/docs/integrations.md#slack)
+- [Setting up Service Standards](/docs/first-standard)
+- [Tracking your first Migration](/docs/first-migration)
+- [Using Slack + effx](/docs/integrations#slack)
 
 ## Accessing effx programmatically
 
@@ -28,13 +28,13 @@ The `effx-cli` is the fundamental component behind most of our Automations. Ther
 
 It's encouraged to use the CLI on your local development environment for testing out your automated workflows.
 
-[Learn more about effx-cli](/docs/cli-overview.md).
+[Learn more about effx-cli](/docs/cli-overview).
 
 ### Jump to Automations
 
 We offer convenient templates for enabling GitOps with popular version control and continuous integration systems.
 
-[Learn more about our Automations](/docs/automations-overview.mdx).
+[Learn more about our Automations](/docs/automations-overview).
 
 ### Fetch your API Key
 
@@ -50,9 +50,9 @@ export EFFX_API_KEY="Paste your key here"
 
 This section will be updated frequently to answer common questions from our users & community.
 
-1. [How do I add dependencies for my services?](/docs/first-service.md#defining-service-dependencies)
-2. [How do I define criteria for my Service Standards?](/docs/first-standard.mdx#service-standard-criteria)
-3. [How do I add a team to effx?](/docs/first-team.mdx)
+1. [How do I add dependencies for my services?](/docs/first-service#defining-service-dependencies)
+2. [How do I define criteria for my Service Standards?](/docs/first-standard#service-standard-criteria)
+3. [How do I add a team to effx?](/docs/first-team)
 
 
 ## Contact Support
