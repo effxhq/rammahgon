@@ -5,7 +5,7 @@ title: Teams
 import ModelAttributeGroup from '../src/components/ModelAttributeGroup';
 import Markdown from 'react-markdown';
 
-All team endpoints leverage the [Team object](teams-model)
+All team endpoints leverage the [Team object](/docs/teams-model)
 
 ## List All Teams
 
@@ -28,7 +28,7 @@ export const listResponse = [
     type: 'list of team objects',
     content: (
       <>
-        <Markdown>See [Team object](teams-model)</Markdown>
+        <Markdown>See [Team object](/docs/teams-model)</Markdown>
       </>
     ),
   },
@@ -37,7 +37,7 @@ export const listResponse = [
     type: 'pagination object',
     content: (
       <>
-        <Markdown>See [Pagination object](pagination-model)</Markdown>
+        <Markdown>See [Pagination object](/docs/pagination-model)</Markdown>
       </>
     ),
   },
@@ -65,7 +65,7 @@ curl -X GET "https://api.effx.io/v2/teams?limit=10&offset=1&query=example-team" 
 
 ### Response
 
-The response is a single [Team object](teams-model)
+The response is a single [Team object](/docs/teams-model)
 
 ### Example
 
@@ -111,7 +111,7 @@ export const requestBody = [
     type: 'team object',
     content: (
       <>
-        <Markdown>See [Team object](teams-model)</Markdown>
+        <Markdown>See [Team object](/docs/teams-model)</Markdown>
       </>
     ),
   },
