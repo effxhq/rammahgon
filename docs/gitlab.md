@@ -53,11 +53,12 @@ deploy-services:
     EFFX_API_KEY: ${EFFX_API_KEY}
   script:
     - effx event -k ${EFFX_API_KEY} --title "Deployment Started" --message "Deploying backend services" --tag "type:deploy"
-    -  # Your deployment logic
-    # If succeeded
-    - effx event -k ${EFFX_API_KEY} --title "Deployment Finished" --message "Deployed backend services" --tag "type:deploy"
-    # If failed
-    - effx event -k ${EFFX_API_KEY} --title "Deployment Failed" --message "Failed backend services" --tag "type:deploy"
+    # Below are ideas for different types of events you could send based upon the exit code of your continuous deployment system
+    #
+    # For example, if your deploy succeeded, you could send an event like the one below:
+    # - effx event -k ${EFFX_API_KEY} --title "Deployment Finished" --message "Deployed backend services" --tag "type:deploy"
+    # If it failed:
+    # - effx event -k ${EFFX_API_KEY} --title "Deployment Failed" --message "Failed backend services" --tag "type:deploy"
   only:
     - master
 ```
