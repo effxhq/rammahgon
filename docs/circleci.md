@@ -26,7 +26,7 @@ workflows:
           context: effx-api-credentials
           requires:
             - lint
-          filter:
+          filters:
             branches:
               only: main
 ```
